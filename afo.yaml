@@ -1,0 +1,32 @@
+# path: AFO/AFO/PART_1/PART_1
+# train: images     
+# val: images
+# names:
+#   0: human
+#   1: wind/sup-board
+#   2: boat
+#   3: bouy
+#   4: sailboat
+#   5: kayak
+
+path: AFO/AFO  
+train:  
+  - PART_1/PART_1/images
+  - PART_2/PART_2/images
+  - PART_3/PART_3/images
+val:
+  - PART_1/PART_1/images
+  - PART_2/PART_2/images
+  - PART_3/PART_3/images
+names:
+  0: person
+  1: boat
+  2: kite
+  3: surfboard
+  4: buoy
+  5: sailboat 
+  6: kayak
+  7: windsurf
+  8: paddleboard
+  9: jet ski
+
