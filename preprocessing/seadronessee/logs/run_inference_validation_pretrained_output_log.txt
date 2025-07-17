@@ -1,0 +1,14 @@
+Ultralytics YOLOv8.2.92 🚀 Python-3.10.12 torch-2.4.0+cu121 CUDA:0 (NVIDIA GeForce RTX 3050 6GB Laptop GPU, 5938MiB)
+YOLOv8n summary (fused): 168 layers, 3,151,904 parameters, 0 gradients, 8.7 GFLOPs
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95):
+                   all       1547       9630      0.261      0.165      0.173      0.106
+                person        508        890    0.00975      0.266     0.0396      0.018
+               bicycle       1286       6206      0.262    0.00451      0.135     0.0839
+                   car       1052       2534       0.51      0.223      0.344      0.215
+Speed: 0.2ms preprocess, 3.1ms inference, 0.0ms loss, 0.7ms postprocess per image
+Results saved to [1mruns/detect/val[0m
+=== Evaluation Metrics ===
+mAP50-95: 0.1058
+mAP50: 0.1728
+Precision: [  0.0097535     0.26168     0.51039]
+Recall: [    0.26629   0.0045118     0.22297]
