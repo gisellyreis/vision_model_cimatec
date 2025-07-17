@@ -1,0 +1,8 @@
+*.ipynb
+*.pt
+*.br
+*.jpg
+
+# ignore large files
+datasets/seadronessee/
+runs/
