@@ -2,7 +2,8 @@
 *.pt
 *.br
 *.jpg
+*.zip
 
-# ignore large files
 datasets/seadronessee/
 runs/
+.vscode/
