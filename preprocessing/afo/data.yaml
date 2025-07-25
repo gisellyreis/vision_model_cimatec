@@ -1,0 +1,7 @@
+path: data/AFO/dataset_yolo_organized  
+train:  data/AFO/dataset_yolo_organized/images/train
+val: data/AFO/dataset_yolo_organized/images/val
+test: data/AFO/dataset_yolo_organized/images/test
+names:
+  0: person
+  1: boat
