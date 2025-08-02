@@ -7,3 +7,7 @@
 datasets/seadronessee/
 runs/
 .vscode/
+
+preprocessing/inference/inferenciaYolov5.py
+preprocessing/inference/inferenciaYolov8.py
+preprocessing/inference/inferenciaYolov10.py
