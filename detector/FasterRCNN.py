@@ -13,4 +13,5 @@ from model import Model
 class FasterRCNN(Model):
     def __init__(self, model_path):
         super().__init__()
-        self.model = torch.load(model_path)
+        self.model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights="DEFAULT")
+        self.model.load_state_dict(torch.load(model_path))
