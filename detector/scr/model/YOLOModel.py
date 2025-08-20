@@ -20,7 +20,7 @@ class YOLOModel(Model):
         self.colors = [[c/255 for c in [random.randint(0, 255) for _ in range(3)]] for _ in self.classes]
 
     def predict(self, image_path):
-        results = self.model.predict(image_path, conf=self.conf_threshold, iou=self.iou_threshold, verbose=False)
+        results = self.model.predict(image_path, conf=self.conf_threshold, iou=self.iou_threshold)
 
         detections = results[0]
         boxes = detections.boxes.xyxy.cpu().numpy().tolist()

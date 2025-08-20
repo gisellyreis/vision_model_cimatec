@@ -41,6 +41,10 @@ class FasterRCNNModel(Model):
         scores = preds["scores"].cpu().numpy().tolist()
         labels = [self.classes[i] for i in preds["labels"].cpu().numpy().tolist()]
 
+        h, w = image.size
+        valid = [(b, s, l) for b, s, l in zip(boxes, scores, labels) if s >= self.conf_threshold]
+        print(f"Input Path: {image_path}: | {w}x{h} | {len(valid)} objects")
+
         return {
             "boxes": boxes,
             "scores": scores,
