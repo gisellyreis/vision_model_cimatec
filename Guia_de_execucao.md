@@ -1,5 +1,3 @@
-
-````markdown
 # Guia de Execução e Treinamento de Modelos YOLOv8 no HPC
 
 ---
