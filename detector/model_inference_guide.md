@@ -22,7 +22,7 @@ The model was trained with our curated dataset to recognize specific maritime ob
 ## Script Location
 
 ```bash
-detector/detector.py
+detector/scr/inference.py
 ```
 
 ## Setup
@@ -35,27 +35,47 @@ pip install -r requirements.txt
 
 - Main dependencies:
 
-    - Python 3.8+ 
-    - Ultralytics 
+    - Python 3.8+
+    - Torch
+    - Torchvision
+    - Pillow
+    - random
+    - Matplotlib
+    - Ultralytics
+    
 
 
 ## Running Inference
 
 ```bash
-python detector.py path/to/image.jpg
+python inference.py --model name_of_model --conf [0;1] --image path/to/image.jpg
 ```
+### Configuration
 
-- This will:
-    - Run the model on the image;
-    - Show a pop-up image with detections;
-    - Print detection info to the terminal.
+``--model`` (required):
+- Model to use. Options:
+    - YOLOv5
+    - YOLOv8
+    - YOLOv10
+    - Faster R-CNN
+
+``--conf`` (optional):
+- Float number between 0 and 1 specifying the confidence threshold.
+
+``--image`` (optional):
+- Path to the image to process (relative to the project root).
+
+### What Happens
+
+- The model is applied to the specified image;
+- A new image with detections is automatically saved.
 
 ## Example:
 
 #### Input Image
 
 ```bash
-python detector.py images/input_example.jpg
+python inference.py --model v10 --conf 0.3 --image images/input_example.jpg
 ```
 <img src="images/input_example.jpg" alt="Input Example" width="500">
 
@@ -68,6 +88,6 @@ python detector.py images/input_example.jpg
 #### Terminal output
 
 ```bash
-image 1/1 /vision_model_cimatec/detector/images/input_example.jpg: 384x640 5 swimmers, 3 boats, 65.8ms
-Speed: 2.1ms preprocess, 65.8ms inference, 479.8ms postprocess per image at shape (1, 3, 384, 640)
+image: ../images/input_example.jpg: 2160x3840 7 objects
+Resultado salvo em: ../detections\fasterRCNN_detection_20250820_162355_input_example.jpg
 ```
