@@ -92,9 +92,9 @@ class Inference(Model):
 def main():
     image = 'images/input_example.jpg'
 
-    yolo_model_path = 'models/v1_yolov10.pt'
+    yolo_model_path = 'models/v1_yolov5.pt'
 
-    rcnn_model_path = 'models/checkpoint_epoch2.pth'
+    rcnn_model_path = 'models/epoch9_valloss2.pth'
 
     # passar o caminho do modelo como argumento
     if len(sys.argv) > 1:
@@ -105,10 +105,10 @@ def main():
     inference = Inference(yolo)
     inference.run(image)
 
-    # fasterRCNN = FasterRCNNModel(rcnn_model_path)
+    #fasterRCNN = FasterRCNNModel(rcnn_model_path)
 
-    # inference = Inference(fasterRCNN)
-    # inference.run(image)
+    #inference = Inference(fasterRCNN)
+    #inference.run(image)
 
 
 if __name__ == '__main__':
