@@ -6,13 +6,14 @@ from torchvision.models.detection import fasterrcnn_resnet50_fpn
 from torchvision.datasets import ImageFolder
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 
-from model import Model
+from .model import Model
 
 class FasterRCNNModel(Model):
-    def __init__(self, model_path):
+    def __init__(self, model_path, conf_threshold=0.8):
         super().__init__()
         self.model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights="DEFAULT")
-        self.name = "FasterRCNN"
+        self.name = "fasterRCNN"
+        self.conf_threshold = conf_threshold
         in_features = self.model.roi_heads.box_predictor.cls_score.in_features
         self.model.roi_heads.box_predictor = FastRCNNPredictor(in_features, 4)
 
@@ -25,3 +26,23 @@ class FasterRCNNModel(Model):
 
         checkpoint = torch.load(model_path, map_location=self.device)
         self.model.load_state_dict(checkpoint)
+
+    def predict(self, image_path):
+        from PIL import Image
+        from torchvision.transforms import functional as F
+
+        image = Image.open(image_path).convert("RGB")
+        image_tensor = F.to_tensor(image).unsqueeze(0).to(self.device)
+
+        with torch.no_grad():
+            preds = self.model(image_tensor)[0]
+
+        boxes = preds["boxes"].cpu().numpy().tolist()
+        scores = preds["scores"].cpu().numpy().tolist()
+        labels = [self.classes[i] for i in preds["labels"].cpu().numpy().tolist()]
+
+        return {
+            "boxes": boxes,
+            "scores": scores,
+            "labels": labels
+        }
