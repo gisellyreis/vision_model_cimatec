@@ -72,9 +72,9 @@ class Inference(Model):
 
 def main():
     parser = argparse.ArgumentParser(description="Model Inference.")
-    parser.add_argument("--model", type=str, required=True, help="Model name (v5, v8, v10, rcnn)")
-    parser.add_argument("--image", type=str, default="../images/input_example.jpg", help="Image Path")
-    parser.add_argument("--conf", type=float, default=0.7, help="Confidence threshold")
+    parser.add_argument("--model", type=str, default="v8", help="Model name (v5, v8, v10, rcnn)")
+    parser.add_argument("--image", type=str, default="../images/input_example.jpg", help="Image Path ex: ../images/input_example.jpg")
+    parser.add_argument("--conf", type=float, default=0.3, help="Confidence threshold")
 
     args = parser.parse_args()
 
@@ -84,10 +84,6 @@ def main():
         "v10": "../models/v1_yolov10.pt",
         "rcnn": "../models/v1_fasterRCNN.pth"
     }
-
-    if args.model not in model_paths:
-        print(f"Model {args.model} not found! Choose between: {list(model_paths.keys())}")
-        sys.exit(1)    
 
     if args.model in ["v5", "v8", "v10"]:
         model = YOLOModel(model_paths[args.model], conf_threshold=args.conf)

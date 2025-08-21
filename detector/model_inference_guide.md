@@ -52,7 +52,7 @@ python inference.py --model name_of_model --conf [0;1] --image path/to/image.jpg
 ```
 ### Configuration
 
-``--model`` (required):
+``--model`` (optional):
 - Model to use. Options:
     - YOLOv5
     - YOLOv8
@@ -75,7 +75,7 @@ python inference.py --model name_of_model --conf [0;1] --image path/to/image.jpg
 #### Input Image
 
 ```bash
-python inference.py --model v10 --conf 0.3 --image images/input_example.jpg
+python inference.py --model v8 --conf 0.3 --image ../images/input_example.jpg
 ```
 <img src="images/input_example.jpg" alt="Input Example" width="500">
 
