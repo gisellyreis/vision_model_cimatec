@@ -82,7 +82,7 @@ python inference.py --model v10 --conf 0.3 --image images/input_example.jpg
 
 #### Output
 
-<img src="images/output_example.jpg" alt="Input Example" width="500">
+<img src="images/output_grid_example.png" alt="Input Example" width="900">
 
 
 #### Terminal output
