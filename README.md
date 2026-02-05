@@ -1,26 +1,44 @@
-# Arquiteturas de Visão Computacional – SENAI CIMATEC
+# How to Train the Models
+All models below are configured to be trained on the SeaDronesSee dataset.
 
- Este repositório reúne arquiteturas modernas de redes neurais profundas voltadas para tarefas de **detecção de objetos**, **segmentação semântica** e **classificação de imagens**. Ele é mantido pelo grupo de pesquisa em Visão Computacional do **SENAI CIMATEC**, com o objetivo de fornecer implementações modulares, reutilizáveis e reprodutíveis para uso acadêmico e industrial.
-
-## 🎯 Objetivos
-
-- Consolidar arquiteturas amplamente utilizadas em visão computacional
-- Facilitar experimentos comparativos e benchmarking
-- Apoiar pesquisas e projetos do Centro de Competências Aeronáutica e Drones
-- Promover boas práticas de organização e desenvolvimento em projetos de Deep Learning
-
-## 🧠 Tecnologias e Bibliotecas
-
-- Python 3.8+
-- PyTorch
-- OpenCV
-- matplotlib / seaborn 
-
-### Instalação
-
-Clone o repositório e instale as dependências:
+## Install Dependencies
 
 ```bash
-git clone https://github.com/gisellyreis/vision_model_cimatec.git
-cd vision_model_cimatec
 pip install -r requirements.txt
+```
+
+## Run the Training Models
+
+### For YOLO
+
+- YOLOv5
+```bash
+python train/yolo.py v5
+```
+
+- YOLOv8 (default)
+```bash
+python train/yolo.py v8
+```
+
+- YOLOv10
+```bash
+python train/yolo.py v10
+```
+
+**Output Location**: After training finishes, your trained models and metrics will be located in: runs/detect/yolo[version]_sds/
+
+
+### For Faster R-CNN
+
+- Download Weights
+```bash
+python fasterrcnn.py
+```
+
+- Start Training
+```bash
+python train/CNN.py
+```
+
+**Output Location**: After training finishes, your trained model will be located in: checkpoints/
