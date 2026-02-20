@@ -4,9 +4,12 @@
 *.br
 *.jpg
 *.zip
+*.txt
 
 datasets/seadronessee/
+datasets/sea_voc/
 runs/
+mlruns/
 .vscode/
 
 preprocessing/inference/inferenciaYolov5.py

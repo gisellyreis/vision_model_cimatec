@@ -1,0 +1,7 @@
+path: datasets/sea_voc
+train: train/images
+val: val/images
+test: test/images
+ 
+nc: 3
+names: ['boat', 'swimmer', 'other']

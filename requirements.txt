@@ -1,7 +1,18 @@
+# --- Official PyTorch Source for Windows/Linux GPU ---
+--extra-index-url https://download.pytorch.org/whl/cu124
+
+# Core Frameworks
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+
+# Computer Vision & Training
 ultralytics
-torch
-torchvision
 opencv-python
 albumentations
 numpy
 tqdm
+
+# MLOps & Deployment
+mlflow
+onnx
+onnxruntime
