@@ -12,15 +12,16 @@ from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from tqdm import tqdm
 import logging
 from datetime import datetime
+import torch.nn as nn
 
 class Config:
     DATASET_DIR = "datasets/sea_voc"
     CLASSES = ["__background__", "swimmer", "boat", "other"]
     NUM_CLASSES = len(CLASSES)
-    BATCH_SIZE = 16
-    NUM_EPOCHS = 100
-    LEARNING_RATE = 0.00001
-    DEVICE = 0
+    BATCH_SIZE = 4
+    NUM_EPOCHS = 1
+    LEARNING_RATE = 0.1
+    DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     NUM_WORKERS = 2
     IMG_SIZE = 480
     CHECKPOINT_DIR = "checkpoints"
@@ -129,17 +130,34 @@ class Trainer:
             loop.set_postfix(loss=losses.item())
         return total_loss / len(data_loader)
 
+    # def validate(self, data_loader):
+    #     self.model.eval()
+    #     total_loss = 0
+    #     with torch.no_grad():
+    #         for imgs, targets in tqdm(data_loader, desc="Validation", leave=False):
+    #             imgs = [img.to(self.device) for img in imgs]
+    #             targets = [{k: v.to(self.device) for k, v in t.items()} for t in targets]
+    #             loss_dict = self.model(imgs, targets)
+    #             print(f"loss dict = {loss_dict} e {type(loss_dict)} ")
+    #             total_loss += sum(loss for loss in loss_dict.values()).item()
+    #     return total_loss / len(data_loader)
+    
     def validate(self, data_loader):
-        self.model.eval()
+        self.model.train()  
+        for m in self.model.modules():
+            if isinstance(m, nn.modules.batchnorm._BatchNorm):
+                m.eval()
         total_loss = 0
         with torch.no_grad():
             for imgs, targets in tqdm(data_loader, desc="Validation", leave=False):
                 imgs = [img.to(self.device) for img in imgs]
                 targets = [{k: v.to(self.device) for k, v in t.items()} for t in targets]
                 loss_dict = self.model(imgs, targets)
+                print(f"loss dict = {loss_dict} e {type(loss_dict)} ")
                 total_loss += sum(loss for loss in loss_dict.values()).item()
+        self.model.eval()  # volta para inferência para o resto do código
         return total_loss / len(data_loader)
-
+    
     def save_checkpoint(self, epoch, val_loss):
         is_best = val_loss < self.best_val_loss
         if is_best:
