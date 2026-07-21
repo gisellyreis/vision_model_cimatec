@@ -1,0 +1,62 @@
+===== AMBIENTE =====
+Python 3.11.15
+Executável: /home/cimatec/laurinne.lira/.conda/envs/env01/bin/python
+
+===== GPU =====
+Wed Jul  8 19:01:57 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-SXM2-32GB           On  |   00000000:60:00.0 Off |                    0 |
+| N/A   41C    P0             46W /  300W |       1MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  Tesla V100-SXM2-32GB           On  |   00000000:61:00.0 Off |                    0 |
+| N/A   41C    P0             43W /  300W |       1MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  Tesla V100-SXM2-32GB           On  |   00000000:88:00.0 Off |                    0 |
+| N/A   41C    P0             43W /  300W |       1MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  Tesla V100-SXM2-32GB           On  |   00000000:89:00.0 Off |                    0 |
+| N/A   41C    P0             44W /  300W |       1MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+===== TESTE PYTORCH =====
+Torch: 2.7.1+cu118
+CUDA PyTorch: 11.8
+CUDA disponível: True
+
+===== TESTE MLFLOW E TORCHMETRICS =====
+MLflow: 3.14.0
+Torchmetrics: 1.9.0
+mAP backend OK
+
+===== INICIANDO TREINO CNN =====
+===== AMBIENTE =====
+Torch: 2.7.1+cu118
+CUDA do PyTorch: 11.8
+CUDA disponível: True
+GPU: Tesla V100-SXM2-32GB
+
+===== TREINO =====
+Pesos iniciais: /scratch/projetos/ccad/ccad-ogun/vision_model_cimatec/models/fasterrcnn_resnet50_fpn_coco.pth
+Dataset VOC: /scratch/projetos/ccad/ccad-ogun/vision_model_cimatec/datasets/dataset_all_voc
+Run name e Saída: /scratch/projetos/ccad/ccad-ogun/vision_model_cimatec/runs/train_cnn/fasterrcnn_resnet50_fpn_coco_cnn_100ep
+MLflow tracking: file:///scratch/projetos/ccad/ccad-ogun/vision_model_cimatec/mlruns
+Tamanho Batch: 16 | Épocas: 100 | Classes: 4
+

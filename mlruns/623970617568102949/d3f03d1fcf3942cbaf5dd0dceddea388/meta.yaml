@@ -1,0 +1,14 @@
+artifact_uri: file:///scratch/projetos/ccad/ccad-ogun/vision_model_cimatec/mlruns/623970617568102949/d3f03d1fcf3942cbaf5dd0dceddea388/artifacts
+end_time: 1783547403343
+entry_point_name: ''
+experiment_id: '623970617568102949'
+lifecycle_stage: active
+run_id: d3f03d1fcf3942cbaf5dd0dceddea388
+run_name: yolov8s_combined_100ep
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1783527732325
+status: 3
+tags: []
+user_id: laurinne.lira

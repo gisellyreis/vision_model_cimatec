@@ -1,0 +1,15 @@
+artifact_uri: file:///scratch/projetos/ccad/ccad-ogun/vision_model_cimatec/mlruns/623970617568102949/232ddf211acc4b61a3bb4753e9673c39/artifacts
+deleted_time: 1784037752788
+end_time: 1783529217592
+entry_point_name: ''
+experiment_id: '623970617568102949'
+lifecycle_stage: deleted
+run_id: 232ddf211acc4b61a3bb4753e9673c39
+run_name: fasterrcnn_resnet50_fpn_coco_cnn_100ep
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1783527312291
+status: 4
+tags: []
+user_id: laurinne.lira

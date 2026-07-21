@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/scratch/projetos/ccad/ccad-ogun/vision_model_cimatec/hpc/mlops/train_yolo.py", line 171, in <module>
+    train_model(parse_args())
+  File "/scratch/projetos/ccad/ccad-ogun/vision_model_cimatec/hpc/mlops/train_yolo.py", line 90, in train_model
+    tracking_uri = setup_mlflow()
+                   ^^^^^^^^^^^^^^
+  File "/scratch/projetos/ccad/ccad-ogun/vision_model_cimatec/hpc/mlops/mlflow_utils.py", line 18, in setup_mlflow
+    mlflow.set_experiment(experiment_name)
+  File "/home/cimatec/laurinne.lira/.conda/envs/env01/lib/python3.11/site-packages/mlflow/tracking/fluent.py", line 203, in set_experiment
+    client = TrackingServiceClient(_resolve_tracking_uri())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cimatec/laurinne.lira/.conda/envs/env01/lib/python3.11/site-packages/mlflow/tracking/_tracking_service/client.py", line 98, in __init__
+    self.store
+  File "/home/cimatec/laurinne.lira/.conda/envs/env01/lib/python3.11/site-packages/mlflow/tracking/_tracking_service/client.py", line 102, in store
+    return utils._get_store(self.tracking_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cimatec/laurinne.lira/.conda/envs/env01/lib/python3.11/site-packages/mlflow/tracking/_tracking_service/utils.py", line 270, in _get_store
+    return _tracking_store_registry.get_store(store_uri, artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cimatec/laurinne.lira/.conda/envs/env01/lib/python3.11/site-packages/mlflow/tracking/_tracking_service/registry.py", line 45, in get_store
+    return self._get_store_with_resolved_uri(resolved_store_uri, artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cimatec/laurinne.lira/.conda/envs/env01/lib/python3.11/site-packages/mlflow/tracking/_tracking_service/registry.py", line 56, in _get_store_with_resolved_uri
+    return builder(store_uri=resolved_store_uri, artifact_uri=artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cimatec/laurinne.lira/.conda/envs/env01/lib/python3.11/site-packages/mlflow/tracking/_tracking_service/utils.py", line 184, in _get_file_store
+    return FileStore(store_uri, store_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cimatec/laurinne.lira/.conda/envs/env01/lib/python3.11/site-packages/mlflow/store/tracking/file_store.py", line 225, in __init__
+    raise MlflowException(
+mlflow.exceptions.MlflowException: The filesystem tracking backend (e.g., './mlruns') is in maintenance mode and will not receive further updates. Please migrate to a database backend (e.g., 'sqlite:///mlflow.db') to access the latest MLflow features. The `mlflow migrate-filestore` tool migrates your existing data losslessly. See https://mlflow.org/docs/latest/self-hosting/migrate-from-file-store for migration guidance. If the filesystem backend is required for your workflow, set `MLFLOW_ALLOW_FILE_STORE=true` to opt out of this exception.
