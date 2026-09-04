@@ -1,9 +1,0 @@
-artifact_location: file:///scratch/projetos/ccad/ccad-ogun/vision_model_cimatec/mlruns/623970617568102949
-creation_time: 1783527308449
-effective_trace_archival_retention: null
-experiment_id: '623970617568102949'
-last_update_time: 1783527308449
-lifecycle_stage: active
-name: vision_model_cimatec
-trace_location: null
-workspace: default

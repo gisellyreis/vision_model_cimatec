@@ -7,9 +7,10 @@ import mlflow
 BASE_DIR = Path("/scratch/projetos/ccad/ccad-ogun/vision_model_cimatec")
 MODELS_DIR = BASE_DIR / "models"
 RUNS_DIR = BASE_DIR / "runs"
- 
+MLRUNS_DIR = Path("/scratch/projetos/ccad/ccad-ogun/mlops_maritime/mlruns")
+
 EXPERIMENT_NAME = "vision_model_cimatec"
-DEFAULT_TRACKING_URI = f"file://{BASE_DIR / 'mlruns'}"
+DEFAULT_TRACKING_URI = f"file://{MLRUNS_DIR}"
  
  
 def setup_mlflow(experiment_name: str = EXPERIMENT_NAME) -> str:

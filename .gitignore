@@ -3,12 +3,15 @@
 *.br
 *.jpg
 *.zip
+*.pyc
 
 datasets/
 audit/
 datasets/seadronessee/
 runs/
+mlruns/
 .vscode/
+__pycache__/
 
 preprocessing/inference/inferenciaYolov5.py
 preprocessing/inference/inferenciaYolov8.py
