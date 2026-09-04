@@ -4,6 +4,8 @@
 *.jpg
 *.zip
 
+datasets/
+audit/
 datasets/seadronessee/
 runs/
 .vscode/
