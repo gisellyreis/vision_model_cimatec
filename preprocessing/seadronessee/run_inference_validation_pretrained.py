@@ -1,9 +1,10 @@
 from ultralytics import YOLO
 
-model = YOLO("yolov8n.pt") 
+model_name = "yolov5n.pt"
+model = YOLO(model_name) 
 
 # Run evaluation on the validation set
-metrics = model.val(data='data.yaml', split='val', verbose=True)
+metrics = model.val(data='data.yaml', name='yolov5_mob', split='val', verbose=True)
 
 # Print mAP, precision, recall, etc.
 print("=== Evaluation Metrics ===")

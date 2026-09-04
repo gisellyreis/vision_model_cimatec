@@ -5,15 +5,17 @@ import matplotlib.pyplot as plt
 
 from ultralytics import YOLO
 
-model = YOLO("yolov8n.pt") 
+model_name = "yolov5s.pt"
+model = YOLO(model_name) 
 
 img_folder = '../../datasets/seadronessee/images/test'
-save_folder = 'inference_pretrained_images'
+save_folder = f'inference_pretrained_images_{model_name}'
 
 os.makedirs(save_folder, exist_ok=True)
 
 image_files = [f for f in os.listdir(img_folder) if f.endswith(('.jpg', '.png'))]
-sample_imgs = random.sample(image_files, min(9, len(image_files)))
+#sample_imgs = random.sample(image_files, min(9, len(image_files)))
+sample_imgs = ['14.jpg']
 
 for i, img_file in enumerate(sample_imgs):
     img_path = os.path.join(img_folder, img_file)

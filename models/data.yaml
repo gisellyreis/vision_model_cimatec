@@ -1,7 +1,0 @@
-path: ../../vision_model_cimatec/datasets/seadronessee
-train: images/train
-val: images/val
-test: images/test
-
-nc: 3
-names: ['other', 'swimmer', 'boat']
